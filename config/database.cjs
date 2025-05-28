@@ -10,6 +10,13 @@ const sequelize = new Sequelize(
   {
     host: process.env.MYSQLHOST,
     dialect: "mysql",
+    dialect: 'mysql',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // PlanetScale uses self-signed certs
+    }
+  },
     logging: false,
   }
 );
